@@ -15,9 +15,11 @@ def build_app() -> FastAPI:
     app.include_router(blog_router, prefix='/blogs')
     app.include_router(user_router, prefix='/user')
 
+
     return app
 
 app = build_app()
+celery = app.celery_app
 
 @app.on_event("startup")
 async def connect():
