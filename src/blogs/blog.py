@@ -23,7 +23,7 @@ async def get_blog(blog_id: PydanticObjectId) -> Blog:
     return {"Mesage": "Blog not found"}
 
 @blog_router.post("/create", status_code=201)
-async def create_blog(blog: Blog) -> Blog:
+async def create_blog(blog: Blog):
     await blog.create()
 
     return {"Mesage": "Blog is created successfully"}
